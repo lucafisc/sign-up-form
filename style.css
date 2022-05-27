@@ -1,0 +1,73 @@
+@font-face {
+    font-family: NeutralFace;
+    src: url(NeutralFace.otf);
+}
+@font-face {
+    font-family: NeutralFace-Bold;
+    src: url(NeutralFace-Bold.otf);
+}
+
+:root {
+    --gray-color: hsl(0deg 0% 90%);
+    --font-regular: NeutralFace, Arial, Helvetica, sans-serif;
+    --font-bold: NeutralFace-Bold, Arial, Helvetica, sans-serif;
+}
+
+*{
+    font-family: var(--font-regular);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--gray-color);
+}
+
+.cover-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-color: green;
+}
+
+.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-container{
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-title {
+    display: inline-block;
+    font-size: clamp(1.5rem, 6vw, 5rem);
+}
+
+.logo-image {
+    padding-left: clamp(.5rem, 2vw, 5rem);
+    height: clamp(1.5rem, 6vw, 5rem);
+    
+}
+
+h2 {
+    font-size: clamp(0.2rem, 3.7vw, 2.7rem) ;
+}
+/* .main-title::after {
+    background-image: url(./images/noun-helmet-1738818-01.svg);
+    background-size: clamp(1.5rem, 100vw, 5rem) clamp(1.5rem, 10vw, 5rem);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: clamp(1.5rem, 6vw, 5rem);
+    height: clamp(1.5rem, 6vw, 5rem);
+    content:"";
+} */
+
+
+
