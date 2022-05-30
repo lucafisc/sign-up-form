@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/7ed8591ee9.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +12,71 @@
 
 
 </head>
+
 <body>
-    <header>
-        <div class="cover-container">
-         <img class="cover-img" src="./images/mymind-XUlsF9LYeVk-unsplash.jpg" alt="Abstract background">
-        </div>
-        <div class="logo-container">
-            <h1 class="main-title">The Odin Project</h1>
-            <img class="logo-image" src="./images/noun-helmet-1738818-01.svg" draggable="false" alt="">
+    <div class="content">
+        <header>
+
+            <div class="cover-container">
+                <h1 class="main-title">The</h1>
+                <div class="logo-container">
+                    <h1 class="main-title">Odin</h1>
+                    <img class="logo-image" src="./images/noun-helmet-1738818-01.svg" draggable="false" alt="">
+                </div>
+                <h1 class="main-title">Project</h1>
+                <p class="text legend">Photo by <a href="https://unsplash.com/@mymind?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">@mymind</a> on <a href="https://unsplash.com/s/photos/gradient?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash.</a></p>
+            </div>
+
             <!-- <h2>//This is <u>not</u> a real online service//</h2> -->
+
+        </header>
+        <main>
+            <div>
+            <h2>You know you need something like this in your life to help realize your deepest dreams. Sing up now to get started</h2>
+            <h2>You know you want to.</h2>
         </div>
-    </header>
-    <main>
-        <h2>You know you need something like this in your life to help realize your deepest dreams.</h2>
-        <h2>Sing up now to get started</h2>
-        <h2>You know you want to.</h2>
-    </main>
+            <form action="#0" method="post">
+                    <div class="card">
+                        <label for="first-name">First Name</label>
+                        <input type="text" name="first-name" id="first-name" class="input" minlength="1" required placeholder=" ">
+                        <p class="message"></p>
+                    </div>
+                    <div class="card">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" name="last-name" id="last-name" class="input" required placeholder=" ">
+                        <p class="message"></p>
+                    </div>
+                    <div class="card">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="input" required placeholder=" ">
+                        <p class="message"></p>
+                        <p class="message-email"></p>
+                    </div>
+                    <div class="card">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" class="input" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required placeholder=" ">                      
+                        <p class="message"></p>
+                        <p class="message-phone"></p>
+                    </div>
+                    <div class="card">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password"  class="input" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required placeholder=" ">
+                        <p class="message"></p>
+                        <p class="message-password-valid"></p>
+                    </div>
+                    <div class="card">
+                        <label for="password-confirm">Confirm Password</label>
+                        <input type="password" name="password" id="password-confirm" class="input" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required placeholder=" ">
+                        <p id="match"></p>
+                        <p class="message-password-match"></p>
+                    </div>
+                    <div class="buttons">
+                    <button type="submit" id="submit" class="submit">Create account</button>
+                    <p class="text">Already have an account? <a href="#">Log in</a></p>
+                    </div>
+            </form>
+        </main>
+    </div>
 </body>
+
 </html>

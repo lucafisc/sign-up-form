@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @font-face {
     font-family: NeutralFace;
     src: url(NeutralFace.otf);
 }
+
 @font-face {
     font-family: NeutralFace-Bold;
     src: url(NeutralFace-Bold.otf);
@@ -9,65 +12,241 @@
 
 :root {
     --gray-color: hsl(0deg 0% 90%);
+    --gray-dark: hsl(0, 0%, 60%);
+    --red-color: hsl(22, 100%, 53%);
     --font-regular: NeutralFace, Arial, Helvetica, sans-serif;
     --font-bold: NeutralFace-Bold, Arial, Helvetica, sans-serif;
+    --input-font: 'Barlow', sans-serif;
 }
 
-*{
+* {
     font-family: var(--font-regular);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     background-color: var(--gray-color);
 }
 
-.cover-container {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    background-color: green;
-}
-
-.cover-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.logo-container{
-    position: absolute;
-    top: 0;
+.content {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cover-container {
+    background-image: url(./images/mymind-XUlsF9LYeVk-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    height: 50vh;
+    padding-left: 20px;
+    padding-right: 100px;
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+ 
+
+
+@media only screen and (min-width: 768px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .cover-container {
+        height: 100vh;
+        background-size: auto 100%;
+    }
+    main {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1194px) {
+    .cover-container {
+        height: 100vh;
+        background-size: 100% auto;
+    }
+}
+
+
+
+header,
+main {
+    flex: 1;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.logo-container {
+    display: flex;
 }
 
 .main-title {
-    display: inline-block;
+    display: block;
     font-size: clamp(1.5rem, 6vw, 5rem);
+    padding-left: clamp(0.5rem, 2vw, 5rem);
 }
 
 .logo-image {
-    padding-left: clamp(.5rem, 2vw, 5rem);
+    padding-left: clamp(0.5rem, 2vw, 5rem);
     height: clamp(1.5rem, 6vw, 5rem);
-    
 }
 
 h2 {
-    font-size: clamp(0.2rem, 3.7vw, 2.7rem) ;
+    margin: 10px;
+    font-family: var(--input-font);
+    font-style: oblique;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--gray-dark);
+    line-height: 25px;
 }
-/* .main-title::after {
-    background-image: url(./images/noun-helmet-1738818-01.svg);
-    background-size: clamp(1.5rem, 100vw, 5rem) clamp(1.5rem, 10vw, 5rem);
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: clamp(1.5rem, 6vw, 5rem);
-    height: clamp(1.5rem, 6vw, 5rem);
-    content:"";
-} */
+
+/* forms */
+form {
+    margin: 30px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90px;
+    position: relative;
+}
 
 
 
+input {
+    font-family: var(--input-font);
+    font-size: 1.5rem;
+    background-color: var(--gray-color);
+    height: 40px;
+    padding-top: 10px;
+    margin: 0 10px;
+    border: 0;
+    border-bottom: 0.5px solid var(--gray-dark);
+    transition: border-bottom 0.5s;
+}
+
+input:focus {
+    outline: 0;
+    border-bottom: 0.5px solid var(--red-color);
+}
+
+.matching,
+.not-matching,
+.message {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    margin-right: 20px;
+}
+
+.message-email,
+.message-phone,
+.message-password-valid,
+.message-password-match {
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: var(--input-font);
+    color: var(--red-color);
+    margin: 0 10px;
+}
+
+label {
+    margin: 0 10px;
+
+}
+
+.matching::after,
+input:not(:placeholder-shown):valid~p.message::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f058";
+    color: rgb(125, 173, 84);
+}
+
+.not-matching::after,
+input:not(:placeholder-shown):invalid~p.message::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f057";
+    color: rgb(237, 90, 90);
+}
+
+input[type="email"]:not(:placeholder-shown):invalid~p.message-email::after {
+    content: "what is your e-mail?";
+}
+
+input[type="tel"]:not(:placeholder-shown):invalid~p.message-phone::after {
+    content: "what is your phone number?";
+}
+
+input[type="password"]:not(:placeholder-shown):invalid~p.message-password-valid::after {
+    content: "your password does not meet the requirements";
+}
+
+label {
+    font-size: 14px;
+    font-family: var(--input-font);
+    color: var(--gray-dark);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+.text,
+a {
+    font-size: 14px;
+    font-family: var(--input-font);
+    color: var(--gray-dark);
+}
+a:hover {
+    color: var(--red-color);
+}
+
+.submit {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid var(--gray-dark);
+    border-radius: 5px;
+    font-family: var(--input-font);
+    color: var(--gray-dark);
+    background-color: var(--gray-color);
+    transition: background-color ease-in-out 0.5s;
+}
+
+.submit:hover {
+    color: white;
+    background-color: var(--red-color);
+}
+.submit:active {
+    -webkit-box-shadow: inset 0px 0px 15px -7px #000000; 
+box-shadow: inset 0px 0px 15px -7px #000000;
+}
+
+
+.legend {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
